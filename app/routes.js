@@ -31,14 +31,7 @@ module.exports = function(app, passport, server) {
         failureRedirect : '/login',
         failureFlash : true
     }));
-    app.get('/signup', function(request, response) {
-        response.render('signup.html', { message: request.flash('signuperror') });
-    });
-    app.post('/signup', passport.authenticate('signup', {
-        successRedirect : '/user',
-        failureRedirect : '/signup',
-        failureFlash : true
-    }));
+
     app.get('/edit', function(request, response) {
         response.render('edit.html', { message: request.flash('updateerror') });
     });
