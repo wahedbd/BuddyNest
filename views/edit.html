@@ -11,6 +11,7 @@
 </head>
 <body>
 <div id='main' class="container">
+    <!--Navigation bar-->
     <nav class="navbar-fluid navbar-default navbar-fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#" title="BuddyNest Logo">
@@ -66,7 +67,7 @@
             </div>
         </div>
     </nav>
-
+    <!--Update form-->
     <form action="/edit" method="post" enctype="multipart/form-data" class="box edit">
         <label>User Name</label><br>
         <input size = "30" type="text" tabindex="1" placeholder="Enter Your User Name" name="username" value ="<%= user.user.username %>" readonly><br>

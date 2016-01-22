@@ -16,7 +16,7 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
-
+    // Login Authentication
     passport.use('login', new LocalStrategy({
             usernameField: 'email',
             passReqToCallback: true
@@ -38,7 +38,7 @@ module.exports = function(passport) {
             });
 
         }));
-    // signup     
+    // signup Authentication
     passport.use('signup', new LocalStrategy({
             usernameField: 'email',
             passReqToCallback: true

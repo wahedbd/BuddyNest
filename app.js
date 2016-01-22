@@ -4,10 +4,10 @@ var port     = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
-var path = require('path'),
+var path = require('path');
     fs = require('fs');
-var http = require('http')
-var server = http.createServer(app)
+var http = require('http');
+var server = http.createServer(app);
 
 
 var configDB = require('./config/database.js');

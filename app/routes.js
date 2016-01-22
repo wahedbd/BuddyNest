@@ -1,11 +1,13 @@
 var User = require('../app/models/user');
 async = require("async");
-var path = require('path'),
+var path = require('path');
     fs = require('fs');
 module.exports = function(app, passport, server) {
+    //Home Page Access
     app.get('/', function(request, response) {
         response.render('index.html');
     });
+    //User Page Access
     app.get('/user', auth, function(request, response) {
         response.render('user.html', {
             user : request.user
@@ -14,15 +16,19 @@ module.exports = function(app, passport, server) {
     //app.get('/image.png', function (req, res) {
     //    res.sendfile(path.resolve('./uploads/image_'+req.user._id));
     //});
+
+    //Update Page Access
     app.get('/edit', auth, function(request, response) {
         response.render('edit.html', {
             user : request.user
         });
     });
+    //Logout Page Access
     app.get('/logout', function(request, response) {
         request.logout();
         response.redirect('/');
     });
+    //Login Page Access
     app.get('/login', function(request, response) {
         response.render('login.html', { message: request.flash('error') });
     });
@@ -31,7 +37,7 @@ module.exports = function(app, passport, server) {
         failureRedirect : '/login',
         failureFlash : true
     }));
-    // Signup
+    // Signup Page Access
     app.get('/signup', function(request, response) {
         response.render('signup.html', { message: request.flash('signuperror') });
     });
@@ -41,7 +47,7 @@ module.exports = function(app, passport, server) {
         failureFlash : true
     }));
 
-
+    //Update Page Access
     app.get('/edit', function(request, response) {
         response.render('edit.html', { message: request.flash('updateerror') });
     });
@@ -61,7 +67,7 @@ module.exports = function(app, passport, server) {
 
         });
     });
-
+    //Socket.IO connection
     var io = require('socket.io').listen(server);
 
     var usernames = {};
